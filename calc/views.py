@@ -7,7 +7,7 @@ def index(request):
 def calcular(request, operation, op1, op2):
 
 	if operation == "sumar":
-		return HttpResponse("El resultado es: " + str(op1+op2))
+		return HttpResponse("El resultado s: " + str(op1+op2))
 	
 		
 	elif operation == "restar":
