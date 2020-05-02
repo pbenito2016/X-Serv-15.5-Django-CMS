@@ -5,5 +5,8 @@ from django.http import HttpResponse
 from .models import Contenido
 
 def get_content(request, llave):
-    contenido = Contenido.objects.get(clave=llave)
-    return HttpResponse(contenido.valor)
+    try:
+        respuesta = Contenido.objects.get(clave=llave).valor
+    except Contenido.DoesNotExist:
+        respuesta = 'No existe contenido para la clave ' + llave
+    return HttpResponse(respuesta)
